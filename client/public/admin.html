@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Fashionsta</title>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .admin-dashboard { display: flex; }
+        .admin-sidebar { width: 220px; background-color: var(--secondary-color); color: white; padding: 20px; min-height: calc(100vh - 60px); /* Adjust 60px for header height */ }
+        .admin-sidebar h2 { color: white; margin-bottom: 20px; }
+        .admin-sidebar ul { list-style: none; padding: 0; }
+        .admin-sidebar ul li a { color: #f0f0f0; display: block; padding: 10px 15px; border-radius: 4px; margin-bottom: 5px; }
+        .admin-sidebar ul li a:hover, .admin-sidebar ul li a.active { background-color: var(--primary-color); color: white; text-decoration: none; }
+        .admin-main-content { flex-grow: 1; padding: 20px; }
+        .admin-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .admin-table th, .admin-table td { border: 1px solid var(--border-color); padding: 8px 12px; text-align: left; }
+        .admin-table th { background-color: var(--accent-color); }
+        .admin-table img { max-width: 50px; height: auto; }
+        .admin-form { margin-top: 20px; } /* for add/edit product forms */
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"><a href="index.html" style="color: var(--primary-color); text-decoration: none;">Fashionsta Admin</a></div>
+            <ul class="nav-links">
+                <li><a href="index.html" target="_blank">View Site</a></li>
+            </ul>
+            <div class="nav-icons">
+                 <span id="user-actions">
+                    <a href="profile.html" id="user-profile-link" style="display:none;">Admin Profile</a>
+                    <a href="#" id="logout-button" style="display:none;">Logout</a>
+                </span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="admin-dashboard">
+        <aside class="admin-sidebar">
+            <h2>Dashboard</h2>
+            <ul>
+                <li><a href="#" id="admin-products-link" class="active">Manage Products</a></li>
+                <li><a href="#" id="admin-add-product-link">Add New Product</a></li>
+                <li><a href="#" id="admin-orders-link">Manage Orders</a></li>
+                <li><a href="#" id="admin-users-link">Manage Users</a></li>
+            </ul>
+        </aside>
+        <main class="admin-main-content" id="admin-content-area">
+            <!-- Admin views will be loaded here by admin.js -->
+            <p>Welcome to the Admin Dashboard. Select an option from the sidebar.</p>
+        </main>
+    </div>
+
+    <!-- No standard footer for admin dashboard usually -->
+
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/admin.js"></script>
+    <script>
+        // Simple active link handling for admin sidebar
+        document.addEventListener('DOMContentLoaded', () => {
+            const adminNavLinks = document.querySelectorAll('.admin-sidebar ul li a');
+            adminNavLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    adminNavLinks.forEach(nav => nav.classList.remove('active'));
+                    e.target.classList.add('active');
+                    // The actual content loading is handled by admin.js listeners
+                });
+            });
+        });
+    </script>
+</body>
+</html>

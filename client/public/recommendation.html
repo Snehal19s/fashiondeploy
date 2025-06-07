@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Personalized Recommendations</title>
+  <link rel="stylesheet" href="./css/recommendation.css">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="container">
+  <!-- <header class="header">
+    <nav>
+      <div class="logo">
+        <img src="../Common Files/image/Fashionsta-removebg-preview.png" alt="Logo" width="40">
+        <a href="/">Fashionsta</a>
+      </div>
+      <input type="checkbox" id="menu-toggle">
+      <label for="menu-toggle" class="menu-icon">&#9776;</label>
+      <ul class="menu">
+        <li><a href="../Landingpage/index.html">Home</a></li>
+         <li><a href="/cateogery">Category</a></li> -->
+        <!-- <li><a href="../Profile/profile.html">Profile</a></li>
+      </ul>
+    </nav>
+  </header> -->
+
+  <header>
+        <nav>
+            <div class="logo"><a href="index.html" style="color: var(--primary-color); text-decoration: none;">Fashionsta</a></div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="products.html?category=Men">Men</a></li>
+                <li><a href="products.html?category=Women">Women</a></li>
+                <li><a href="products.html?category=Fashion Accessories">Accessories</a></li>
+                <li><a href="recommendation.html">Recomodations</a></li>
+            </ul>
+            <div class="nav-icons">
+                <input type="search" id="search-bar" placeholder="Search products...">
+                <div id="autocomplete-results" class="autocomplete-results"></div>
+                <a href="wishlist.html" id="wishlist-link">Wishlist (<span id="wishlist-count">0</span>)</a>
+                <a href="cart.html" id="cart-link">Cart (<span id="cart-count">0</span>)</a>
+                <span id="user-actions">
+                    <a href="profile.html" id="user-profile-link" style="display:none;">Profile</a>
+                    <a href="login.html" id="login-link">Login</a>
+                    <span id="auth-separator" style="display:none;">/</span> <a href="signup.html" id="signup-link">Signup</a>
+                    <a href="#" id="logout-button" style="display:none;">Logout</a>
+                </span>
+                <a href="admin.html" id="admin-link" style="display:none;">Admin</a>
+            </div>
+        </nav>
+    </header>
+
+  <h1 class="heading">Personalized Recommendations</h1>
+  <p class="subheading">Tell us a bit about yourself to get style advice!</p>
+
+  <div class="grid">
+    <!-- Input Form -->
+    <div class="card">
+      <h2>Your Style Profile</h2>
+      <p>Select your skin tone and body shape.</p>
+      <form id="recommendationForm" class="form">
+        <label>Skin Tone</label>
+        <select name="skinTone" required>
+          <option value="">--Select--</option>
+          <option>Fair</option>
+          <option>Light</option>
+          <option>Medium</option>
+          <option>Tan</option>
+          <option>Olive</option>
+          <option>Brown</option>
+          <option>Dark Brown</option>
+          <option>Black</option>
+        </select>
+
+        <label>Body Shape</label>
+        <select name="bodyShape" required>
+          <option value="">--Select--</option>
+          <option>Hourglass</option>
+          <option>Pear</option>
+          <option>Apple</option>
+          <option>Rectangle</option>
+          <option>Inverted Triangle</option>
+        </select>
+
+        <button type="submit" class="btn">Get Recommendations</button>
+      </form>
+    </div>
+
+    <!-- Results -->
+    <div class="card wide" id="results">
+      <h2>Our Suggestions</h2>
+      <div id="recommendationOutput">
+        <p class="placeholder">Fill the form to see recommendations.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/recommendation.js"></script>
+</body>
+</html>
