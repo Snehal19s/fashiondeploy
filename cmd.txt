@@ -1,0 +1,9 @@
+for server
+    cd server
+to run server
+    npm run dev
+for client 
+    cd.\client\public
+run client
+npm install -g http-server
+    http-server -p 3000
