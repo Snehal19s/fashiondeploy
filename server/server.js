@@ -34,7 +34,12 @@ app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/reviews', reviewRoutes);
+app.use(express.static(path.join(__dirname, '..', 'client')));
 
+// Serve index.html for root path
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'client', 'index.html'));
+});
 // Basic error handler
 app.use((err, req, res, next) => {
     console.error(err.stack);
